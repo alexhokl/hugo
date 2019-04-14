@@ -1,0 +1,2 @@
+# hugo
+A dockerised Hugo
