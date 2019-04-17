@@ -7,7 +7,7 @@ RUN go get -u github.com/gohugoio/hugo
 FROM alpine:3.9
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache curl
+    apk add --no-cache curl libwebp
 
 RUN addgroup -S app && adduser -S -G app app
 ENV HOME=/home/app
