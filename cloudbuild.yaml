@@ -1,0 +1,19 @@
+timeout: "1200s" # 20 minutes
+steps:
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args:
+  - 'build'
+  - '--build-arg'
+  - 'GIT_TAG=$TAG_NAME'
+  - '-t'
+  - 'eu.gcr.io/$PROJECT_ID/hugo:$TAG_NAME'
+  - '.'
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push to Container registry
+  args:
+  - 'push'
+  - 'eu.gcr.io/$PROJECT_ID/hugo:$TAG_NAME'
+
