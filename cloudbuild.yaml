@@ -1,3 +1,5 @@
+options:
+  machineType: E2_MEDIUM # 1 vCPU
 timeout: "1200s" # 20 minutes
 steps:
 
