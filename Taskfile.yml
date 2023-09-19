@@ -1,7 +1,7 @@
 version: '3'
 
 env:
-  GIT_TAG: v0.117.0
+  GIT_TAG: v0.118.2
 
 tasks:
 
@@ -14,3 +14,11 @@ tasks:
     desc: Docker push
     cmds:
     - docker push docker.io/alexhokl/hugo:$GIT_TAG
+
+  re-tag:
+    desc: Re-tag
+    cmds:
+    - git push -d origin $GIT_TAG
+    - git tag -d $GIT_TAG
+    - git tag $GIT_TAG
+    - git push --tags

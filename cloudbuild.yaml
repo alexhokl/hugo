@@ -1,6 +1,6 @@
 options:
   machineType: E2_MEDIUM # 1 vCPU
-timeout: "1200s" # 20 minutes
+timeout: "1800s" # 20 minutes
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
@@ -10,12 +10,12 @@ steps:
   - '--build-arg'
   - 'GIT_TAG=$TAG_NAME'
   - '-t'
-  - 'eu.gcr.io/$PROJECT_ID/hugo:$TAG_NAME'
+  - 'asia-east1-docker.pkg.dev/$PROJECT_ID/public/hugo:$TAG_NAME'
   - '.'
 
 - name: 'gcr.io/cloud-builders/docker'
   id: Push to Container registry
   args:
   - 'push'
-  - 'eu.gcr.io/$PROJECT_ID/hugo:$TAG_NAME'
+  - 'asia-east1-docker.pkg.dev/$PROJECT_ID/public/hugo:$TAG_NAME'
 
