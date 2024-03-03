@@ -1,7 +1,7 @@
 version: '3'
 
 env:
-  GIT_TAG: v0.118.2
+  GIT_TAG: v0.123.7
 
 tasks:
 
