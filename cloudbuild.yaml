@@ -1,6 +1,12 @@
+logsBucket: 'gs://craffy-build-logs'
+
 options:
   machineType: E2_MEDIUM # 1 vCPU
+  # logging: CLOUD_LOGGING_ONLY
+  logging: GCS_ONLY
+
 timeout: "1800s" # 20 minutes
+
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
