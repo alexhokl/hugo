@@ -1,24 +1,23 @@
-version: '3'
+version: "3"
 
 env:
-  GIT_TAG: v0.139.5
+  GIT_TAG: v0.148.1
 
 tasks:
-
   image:
     desc: Docker build
     cmds:
-    - docker build --build-arg GIT_TAG=$GIT_TAG -t docker.io/alexhokl/hugo:$GIT_TAG .
+      - docker build --build-arg GIT_TAG=$GIT_TAG -t docker.io/alexhokl/hugo:$GIT_TAG .
 
   push:
     desc: Docker push
     cmds:
-    - docker push docker.io/alexhokl/hugo:$GIT_TAG
+      - docker push docker.io/alexhokl/hugo:$GIT_TAG
 
   re-tag:
     desc: Re-tag
     cmds:
-    - git push -d origin $GIT_TAG
-    - git tag -d $GIT_TAG
-    - git tag $GIT_TAG
-    - git push --tags
+      - git push -d origin $GIT_TAG
+      - git tag -d $GIT_TAG
+      - git tag $GIT_TAG
+      - git push --tags
